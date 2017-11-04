@@ -28,7 +28,7 @@
 \vspace*{-0.025in}
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=8cm]{./figuras/logo}
+\includegraphics[width=8cm]{./Figuras/logo}
 \end{center}
 \end{figure}
 \vspace*{0.15in}
@@ -760,28 +760,45 @@ Se trabajara sobre la transaccion en la tabla de prueba\\
 Tareas\\
 \begin{enumerate}[1.]
     \item Muestre los registros en orden ascendente para las siguientes tablas:\\
-AD STUDEN DETAILS ordenado por STUDEN RE YEAR \\
-A EXA RESULTS ordenado por STUDEN ID y COURS ID\\
-A STUDEN ATTENDANCE ordenado por STUDEN ID\\
-A DEPARTMENT ordenado por DEPARTMEN ID\\
-    
-     
-     \item Muestre el porcentaje de iías que se han ausentado los alumnos y ordene los registros segun el porcentaje calculado.\\
-   \item Muestre los 5 alumnos con la mayor calificacion y, a continuacion, los siguientes 5 alumnos, es decir, los clasificados del 6 al 10..
-     \item Utilice WITH TIES para devolver todas las filas que tienen la misma clave de ordenacion que la ultima fila de la clausula de limitacion de filas cuando muestra 5 alumnos.
-      \item Muestre los detalles principales ordenados por PARENT  ID.
-      
-		\end{enumerate}
 
+\begin{enumerate}
+	\item	Muestre los registros en orden ascendente para las siguientes tablas:\\
 
+		a.	AD STUDENT DETAILS ordenado por STUDENT REG YEAR\\ 
+		
+			Select * from adStudentDetails order by studentRegYear ASC;\\	
+			
+		b.	AD EXAM RESULTS ordenado por STUDENT ID y COURSE ID\\ 
+		
+			Select * from adExamResults order by studentId , courseId\\
+					
+		c.	AD STUDENT ATTENDANCE ordenado por STUDENT ID\\ 
 
+			Select * from adStudentAttendance order by studentid ASC;\\
+		
+		d.	AD DEPARTMENT ordenado por DEPARTMENT ID\\
 
+			Select * from addepartment order by  departmentid  ASC;\\
+ 
+	\item	Muestre el porcentaje de d�as que se han ausentado los alumnos y ordene los registros seg�n el porcentaje calculado.\\
+	
+		SELECT NoOfDaysOff * 100/(SELECT sum(NoOfDaysOff) AS porcentajeDeFaltas FROM STUDENT ATTENDANCE) 
+		FROM STUDENT ATTENDANCE GROUP BY NoOfDaysOff;\\
+ 
+	\item	Muestre los 5 alumnos con la mayor calificaci�n y, a continuaci�n, los siguientes 5 alumnos, es decir,  los clasificados del 6 		al 10.\\
 
+		SELECT dem�sAtributos, MAX(atributoNota) from TablaAlumnos ORDER BY atributoId DESC LIMIT 5 \\
+ 
+	\item	Utilice WITH TIES para devolver todas las filas que tienen la misma clave de ordenaci�n que la �ltima fila de la cl�usula 			de limitaci�n de filas cuando muestra 5 alumnos.\\
+	
+		SELECT TOP (5) WITH TIES StudentId from STUDENT ORDER BY StudentId DESC;\\
+ 
+	\item	Muestre los detalles principales ordenados por "PARENT ID".\\
+	
+		SELECT * FROM TablaDetalles ORDER BY PARENT ID ASC;\\
 
-
-
-
-
+\end{enumerate}
+\end{enumerate}
 \newpage
 \subsection{Joining Tables Using JOIN} 
 
@@ -796,16 +813,18 @@ Generar un producto cartesiano\\
 Tareas\\
 \begin{enumerate}[1.]
     \item Muestre los diferentes cursos que ofertan los departamentos de la escuela\\
+
      \item MMuestre los cursos que se ofertan en otono.\\
-   \item Muestre los detalles del curso, el departamento que ofrece los cursos y los alumnos que se han inscrito en esos cursos.
-     \item Muestre los detalles del curso, el departamento que ofrece los cursos y los alumnos que se han inscrito en esos cursos del departamento 30.
-      \item ¿Se ejecutara correctamente la sentencia especificada? En caso negativo, ¿que se debe cambiar?
+
+    \item Muestre los detalles del curso, el departamento que ofrece los cursos y los alumnos que se han inscrito en esos cursos.
+    \item Muestre los detalles del curso, el departamento que ofrece los cursos y los alumnos que se han inscrito en esos cursos del departamento 30.
+    \item ¿Se ejecutara correctamente la sentencia especificada? En caso negativo, ¿que se debe cambiar?
       
-      \item Escriba una consulta para mostrar los detalles de las calificaciones obtenidas por los alumnos que han optado por el curso con COURSE ID en el rango de 190 a 195.
+    \item Escriba una consulta para mostrar los detalles de las calificaciones obtenidas por los alumnos que han optado por el curso con COURSE ID en el rango de 190 a 195.
       
-      \item Recupere las filas de la tabla AD EXAM RESULTS incluso si no hay ningun registro que coincida en la tabla AD COURSE DETAILS.
+    \item Recupere las filas de la tabla AD EXAM RESULTS incluso si no hay ningun registro que coincida en la tabla AD COURSE DETAILS.
       
-      \item ¿Que salida se debe generar cuando se ejecuta la sentencia especificada?
+    \item ¿Que salida se debe generar cuando se ejecuta la sentencia especificada?
 		\end{enumerate}
 
 
