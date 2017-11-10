@@ -547,11 +547,11 @@ Tareas\\
 
 
 \subsubsection{Ejercicio 1: Control de Transacciones} 
-descripcion general  \\
-En esta practica, controlara las transacciones mediante las siguientes sentencias:
-COMMIT\\
-ROLLBACK\\
-SAVEPOINT\\
+Descripcion general  \\
+En esta practica, controlara las transacciones mediante las siguientes sentencias: \\
+COMMIT \\
+ROLLBACK \\
+SAVEPOINT \\
  \\
 Supuestos\\
 Para trabajar con las sentencias de control de transacciones, creará una tabla de prueba, AD STUDENT TEST DETAILS.\\
@@ -560,16 +560,60 @@ Se trabajara sobre la transaccion en la tabla de prueba\\
 
 Tareas\\
 \begin{enumerate}[1.]
-    \item Cree una tabla de prueba con la siguiente estructura.  
-     \item Modifique la tabla para agregar la columna email addr:.\\
-   \item Cree un punto de grabacion denominado ALTER DONE.
-     \item Realice rollback en la sentencia hasta el punto de grabacion ALTER DONE. ¿Observa los cambios?.
-      \item Inserte filas en la tabla de prueba o cree un punto de grabacion denominado INSERT DONE.
-      \item Actualice una fila en la tabla de prueba o cree un punto de grabacion denominado UPDATE DONE. 
-      \item Suprima una fila de la tabla de prueba o cree un punto de grabacion denominado DELETE DONE
-     \item  Realice rollback hasta el punto de grabacion UPDATE DONE. ¿Que cambios observa respecto a las transacciones?\\
-      NOTA: Las tareas anteriores no se pueden realizar en Oracle Application Express. Utilice Oracle SQL Developer para trabajar con las tareas.
-		\end{enumerate}
+\item Cree una tabla de prueba con la siguiente estructura.
+\begin{figure}[H]
+	\centering
+	\caption{Tabla de estudiantes creada.}
+	\includegraphics[height=1in]{./LeoImagen/PruebasBD_1.png} 
+\end{figure}
+\item Modifique la tabla para agregar la columna email addr.
+\begin{figure}[H]
+	\centering
+	\caption{Hacemos un alter table para crear columna email.}
+	\includegraphics[height=1in]{./LeoImagen/PruebasBD_2.png} 
+\end{figure}
+\item Cree un punto de grabacion denominado ALTER DONE.
+\begin{figure}[H]
+	\centering
+	\caption{Hacemos un punto de guardado despues de alterar la tabla.}
+	\includegraphics[height=0.4in]{./LeoImagen/PruebasBD_3.png} 
+\end{figure}
+\item Realice rollback en la sentencia hasta el punto de grabacion ALTER DONE. ¿Observa los cambios?
+\begin{figure}[H]
+	\centering
+	\caption{Creamos transaccion rollback hacia el punto donde alteramos la tabla.}
+	\includegraphics[height=0.5in]{./LeoImagen/PruebasBD_4.png} 
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\caption{Si se guardaron los cambios.}
+	\includegraphics[height=0.4in]{./LeoImagen/PruebasBD_4_1.png} 
+\end{figure}
+\item Inserte filas en la tabla de prueba o cree un punto de grabacion denominado INSERT DONE.
+\begin{figure}[H]
+	\centering
+	\caption{Insertamos filas a la tabla estudiantes.}
+	\includegraphics[height=1in]{./LeoImagen/PruebasBD_5.png} 
+\end{figure}
+\item Actualice una fila en la tabla de prueba o cree un punto de grabacion denominado UPDATE DONE.
+\begin{figure}[H]
+	\centering
+	\caption{Creamos sentencia update par actualizar estudiantes con nombre Juan.}
+	\includegraphics[height=1in]{./LeoImagen/PruebasBD_6.png} 
+\end{figure}
+\item Suprima una fila de la tabla de prueba o cree un punto de grabacion denominado DELETE DONE.
+\begin{figure}[H]
+	\centering
+	\caption{Sentencia para eliminar filas.}
+	\includegraphics[height=1in]{./LeoImagen/PruebasBD_7.png} 
+\end{figure}
+\item  Realice rollback hasta el punto de grabacion UPDATE DONE. ¿Que cambios observa respecto a las transacciones? \\
+\begin{figure}[H]
+	\centering
+	\caption{Rollback y vemos que los cambios se revirtieron hasta el punto del update.}
+	\includegraphics[height=1in]{./LeoImagen/PruebasBD_8.png} 
+\end{figure}
+\end{enumerate}
 
 
 
